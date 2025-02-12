@@ -18,4 +18,5 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Newsboat](https://github.com/newsboat/newsboat) - Commandline RSS/Atom feed reader
 - [Swaylock](https://github.com/swaywm/swaylock) - Screen locker for Wayland
 - [Tmux](https://github.com/tmux/tmux) - Terminal multiplexer
+- [Tofi](https://github.com/philj56/tofi) - Dynamic menu for Wayland
 - [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell command interpreter
