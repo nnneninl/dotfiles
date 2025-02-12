@@ -13,4 +13,5 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Lf](https://github.com/gokcehan/lf) - Terminal file manager
 - [Mksh](https://github.com/MirBSD/mksh) - Shell command interpreter
 - [Mpd](https://github.com/MusicPlayerDaemon/MPD) - Music player daemon
+- [Mpv](https://github.com/mpv-player/mpv) - Commandline video player
 - [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell command interpreter
