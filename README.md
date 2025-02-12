@@ -16,6 +16,7 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Mpv](https://github.com/mpv-player/mpv) - Commandline video player
 - [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) - Ncurses-based client for mpd
 - [Newsboat](https://github.com/newsboat/newsboat) - Commandline RSS/Atom feed reader
+- [Neovim](https://github.com/neovim/neovim) - Hyperextensible Vim-based text editor
 - [Swaylock](https://github.com/swaywm/swaylock) - Screen locker for Wayland
 - [Tmux](https://github.com/tmux/tmux) - Terminal multiplexer
 - [Tofi](https://github.com/philj56/tofi) - Dynamic menu for Wayland
