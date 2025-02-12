@@ -9,3 +9,4 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Foot](https://codeberg.org/dnkl/foot) - Terminal emulator
 - [Git](https://github.com/git/git) - Version control system
 - [Hyprland](https://github.com/hyprwm/Hyprland) - Dynamic tiling wayland compositor
+- [Imv](https://sr.ht/~exec64/imv) - Commandline image viewer
