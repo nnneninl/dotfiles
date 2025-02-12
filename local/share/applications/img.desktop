@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Applciation
+Name=Image Viewer
+Exec=/usr/bin/imv %F
