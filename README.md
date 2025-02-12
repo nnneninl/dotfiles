@@ -16,4 +16,5 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Mpv](https://github.com/mpv-player/mpv) - Commandline video player
 - [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) - Ncurses-based client for mpd
 - [Newsboat](https://github.com/newsboat/newsboat) - Commandline RSS/Atom feed reader
+- [Swaylock](https://github.com/swaywm/swaylock) - Screen locker for Wayland
 - [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell command interpreter
