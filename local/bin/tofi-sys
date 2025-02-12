@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case "$(printf "Shutdown\nReboot\nLogout" | tofi )" in 
+	Shutdown)
+		systemctl poweroff -i
+		;;
+	Reboot)
+		systemctl reboot -i
+		;;
+	Logout)
+		loginctl terminate-session "$XDG_SESSION_ID"
+		;;
+	*)
+		exit 1
+		;;
+esac

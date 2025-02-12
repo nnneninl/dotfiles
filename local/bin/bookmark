@@ -1,0 +1,6 @@
+#!/bin/sh
+
+bookmark="$(wl-paste -pw wl-copy)"
+file="$HOME/.local/share/bookmarks"
+
+echo "$bookmark" >> "$file"

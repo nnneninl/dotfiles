@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf "%d\n" "$((($(od -An -N2 -i /dev/urandom) % 6) + 1))"
