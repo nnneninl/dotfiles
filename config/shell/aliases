@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# systemctl
+alias SS="sudo systemctl"
+
+# editor
+alias \
+	v="nvim" \
+	sv="sudoedit"
+
+# package manager
+alias \
+	p="sudo pacman" \
+	pa="paru"
+
+# file manipulation
+alias \
+	cp="cp -vi" \
+	mv="mv -vi" \
+	rm="rm -vi"
+
+# tmux
+alias \
+	t="tmux" \
+	ta="tmux attach-session" \
+	td="tmux detach-client"
+
+# other
+alias \
+	jctl="journalctl -p 3 -xb" \
+	l="ls -hAlF --color=auto --group-directories-first" \
+	lf="lfcd"

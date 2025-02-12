@@ -1,0 +1,47 @@
+#!/bin/sh
+
+export PATH="$PATH":"$HOME"/.local/bin:"$HOME"/.local/share/npm/bin:"$HOME"/.local/share/cargo/bin:"$HOME"/.local/share/go/bin:"$HOME"/.local/share/bun/bin:"$HOME"/.local/share/pnpm
+
+# default apps
+export BROWSER="firefox"
+export EDITOR="nvim"
+export MANPAGER="nvim +Man!"
+export TERMINAL="footclient"
+
+# xdg specifications
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state
+export XDG_CURRENT_DESKTOP="Hyprland"
+export XDG_SESSION_DESKTOP="Hyprland"
+export XDG_SESSION_TYPE="wayland"
+
+# home cleanup
+export BUN_INSTALL="$XDG_DATA_HOME"/bun
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GOPATH="$XDG_DATA_HOME"/go
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export LESSHISTFILE="-"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export PNPM_HOME="$XDG_DATA_HOME"/pnpm
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
+export ZDOTDIR="$XDG_CONFIG_HOME"/shell/zsh
+
+# toolkit backend variables
+export CLUTTER_BACKEND="wayland"
+export GDK_BACKEND="wayland"
+export QT_QPA_PLATFORM="wayland"
+#export SDL_VIDEODRIVER="wayland"
+
+# qt variables
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+# other
+export RUSTC_WRAPPER="$CARGO_HOME"/bin/sccache
+export SUDO_ASKPASS="$HOME/.local/bin/tofi-pass"
+
+[ "$(tty)" = "/dev/tty1" ] && exec Hyprland > ~/.hyprland.log

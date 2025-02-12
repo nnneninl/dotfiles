@@ -1,0 +1,13 @@
+function preexec() {
+	timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+	if [ $timer ]; then
+		timer_show=$(($SECONDS - $timer))
+		export RPROMPT="${timer_show}s"
+		unset timer
+	fi
+}
+
+PROMPT="%B%F{blue}%1~%b%f %(?.%F{yellow}.%F{red})$%f "

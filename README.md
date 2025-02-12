@@ -11,3 +11,5 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Hyprland](https://github.com/hyprwm/Hyprland) - Dynamic tiling wayland compositor
 - [Imv](https://sr.ht/~exec64/imv) - Commandline image viewer
 - [Lf](https://github.com/gokcehan/lf) - Terminal file manager
+- [Mksh](https://github.com/MirBSD/mksh) - Shell command interpreter
+- [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell command interpreter

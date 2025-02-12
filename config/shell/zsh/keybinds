@@ -1,0 +1,6 @@
+# vi mode
+bindkey -v
+
+# function shortcuts
+bindkey -s "^o" "lfcd\n"
+bindkey -s "^p" "tmux-sessionizer\n"
