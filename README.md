@@ -22,4 +22,5 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Transmission](https://github.com/transmission/transmission) - BitTorrent client
 - [Tremc](https://github.com/tremc/tremc) - Curses interface for Transmission
 - [VSCodium](https://github.com/VSCodium/vscodium) - VS Code without MS branding/licensing/telemetry
+- [Waybar](https://github.com/Alexays/Waybar) - Status bar for Wayland
 - [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell command interpreter
