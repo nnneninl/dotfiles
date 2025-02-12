@@ -8,3 +8,4 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Dunst](https://github.com/dunst-project/dunst) - Notification daemon
 - [Foot](https://codeberg.org/dnkl/foot) - Terminal emulator
 - [Git](https://github.com/git/git) - Version control system
+- [Hyprland](https://github.com/hyprwm/Hyprland) - Dynamic tiling wayland compositor
