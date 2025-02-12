@@ -14,4 +14,5 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Mksh](https://github.com/MirBSD/mksh) - Shell command interpreter
 - [Mpd](https://github.com/MusicPlayerDaemon/MPD) - Music player daemon
 - [Mpv](https://github.com/mpv-player/mpv) - Commandline video player
+- [Ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) - Ncurses-based client for mpd
 - [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell command interpreter

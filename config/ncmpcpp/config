@@ -1,0 +1,41 @@
+# directories
+lyrics_directory = "~/.local/share/lyrics"
+mpd_music_dir = "~/music"
+
+# appearance
+user_interface = "alternative"
+alternative_header_first_line_format = "%a - %t"
+alternative_header_second_line_format = "%b (%y)"
+
+# colors
+colors_enabled = "no"
+
+# display
+browser_display_mode = "columns"
+playlist_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+search_engine_display_mode = "columns"
+
+# now playing
+now_playing_prefix = "> "
+
+# progress bar
+progressbar_look = "-O"
+
+# startup screen
+media_library_albums_split_by_date = no
+media_library_primary_tag = "album_artist"
+startup_screen = "media_library"
+
+# visualizer
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_in_stereo = "yes"
+visualizer_look = ".."
+visualizer_output_name = "my_fifo"
+visualizer_type = "wave_filled"
+
+# others
+external_editor = nvim
+ignore_leading_the = "yes"
+message_delay_time = "1"
+use_console_editor = "yes"
