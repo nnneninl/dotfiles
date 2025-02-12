@@ -21,4 +21,5 @@ Collection of dotfiles for configurations of tools and environments I use.
 - [Tofi](https://github.com/philj56/tofi) - Dynamic menu for Wayland
 - [Transmission](https://github.com/transmission/transmission) - BitTorrent client
 - [Tremc](https://github.com/tremc/tremc) - Curses interface for Transmission
+- [VSCodium](https://github.com/VSCodium/vscodium) - VS Code without MS branding/licensing/telemetry
 - [Zsh](https://sourceforge.net/p/zsh/code/ci/master/tree) - Shell command interpreter

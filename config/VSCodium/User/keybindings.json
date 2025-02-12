@@ -1,0 +1,54 @@
+// Place your key bindings in this file to override the defaults
+[
+  /* toggle bar */
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+b"
+  },
+  /* explorer */
+  {
+    "command": "workbench.action.focusActiveEditorGroup",
+    "key": "space e",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "command": "explorer.newFile",
+    "key": "shift+5",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "explorer.newFolder",
+    "key": "d",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.copy",
+    "key": "y",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.cut",
+    "key": "x",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.paste",
+    "key": "p",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "deleteFile",
+    "key": "shift+d",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "renameFile",
+    "key": "r",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  /* zen */
+  {
+    "command": "workbench.action.toggleZenMode",
+    "key": "ctrl+z"
+  }
+]
