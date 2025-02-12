@@ -1,0 +1,6 @@
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[pull]
+	rebase = false
