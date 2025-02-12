@@ -1,0 +1,89 @@
+set drawbox
+set hidden
+set previewer ~/.config/lf/previewer.sh
+
+cmd compress ${{
+	printf "Archive name: "
+	read ans
+	7z a "$ans" $fx
+	lf -remote "send echo SUCCESS: compressed files into $ans."
+}}
+
+cmd extract ${{
+	case "$f" in
+		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2)
+			tar xjvf "$f"
+			;;
+		*.tar.gz|*.tgz)
+			tar xzvf "$f"
+			;;
+		*.tar.xz|*.txz)
+			tar xJvf "$f"
+			;;
+		*.zip)
+			unzip "$f"
+			;;
+		*.rar)
+			unrar "$f"
+			;;
+		*.7z)
+			7z x "$f"
+			;;
+		*)
+			lf -remote "send echo ERROR: unsupported format."
+			;;
+	esac
+}}
+
+cmd follow_link ${{
+	lf -remote "send $id select $(readlink $f)"
+}}
+
+cmd open ${{
+	case "$(file --mime-type "$f" -bL)" in
+		image/*)
+			setsid -f imv "$f" >/dev/null 2>&1
+			;;
+		audio/*|video/*)
+			setsid -f mpv "$f" --quiet >/dev/null 2>&1
+			;;
+		application/pdf|application/epub*)
+			setsid -f zathura "$f" >/dev/null 2>&1
+			;;
+		application/vnd*|application/msword)
+			setsid -f libreoffice "$f" >/dev/null 2>&1
+			;;
+		text/*|application/json)
+			nvim "$f"
+			;;
+	esac
+}}
+
+# keybinds
+map d
+
+map <enter> shell
+map r :rename; cmd-end
+map x cut
+map az compress
+map ax extract
+
+map v $nvim .
+map V $vscodium .
+
+map L follow_link
+map gc cd ~/.config
+map gl cd ~/.local
+map gb cd ~/.local/bin
+map gs cd ~/.local/share
+map gS cd ~/.local/src
+
+map gd cd ~/documents
+map gD cd ~/downloads
+map gM cd ~/music
+map gp cd ~/pictures
+map gP cd ~/projects
+map gv cd ~/videos
+
+map gmh cd /mnt/hdd
+map gmu cd /mnt/usb
