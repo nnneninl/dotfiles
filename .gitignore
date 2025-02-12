@@ -1,0 +1,10 @@
+# ignore
+config/ncmpcpp/error.log
+config/shell/zsh/.zcompdump
+config/transmission-daemon/*
+config/VSCodium/*
+
+# don't ignore
+!config/transmission-daemon/settings.json
+!config/VSCodium/User/keybindings.json
+!config/VSCodium/User/settings.json
