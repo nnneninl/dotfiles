@@ -1,0 +1,55 @@
+set sandbox none
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+map g goto top
+
+# colors
+set default-fg rgb(205,214,244)
+set default-bg rgb(30,30,46)
+
+set completion-bg rgb(49,50,68)
+set completion-fg rgb(205,214,244)
+set completion-highlight-bg rgb(87,82,104)
+set completion-highlight-fg rgb(205,214,244)
+set completion-group-bg rgb(49,50,68)
+set completion-group-fg rgb(137,180,250)
+
+set statusbar-fg rgb(205,214,244)
+set statusbar-bg rgb(49,50,68)
+
+set notification-bg rgb(49,50,68)
+set notification-fg rgb(205,214,244)
+set notification-error-bg rgb(49,50,68)
+set notification-error-fg rgb(243,139,168)
+set notification-warning-bg rgb(49,50,68)
+set notification-warning-fg rgb(250,227,176)
+
+set inputbar-fg rgb(205,214,244)
+set inputbar-bg rgb(49,50,68)
+
+set recolor "true"
+set recolor-lightcolor rgb(30,30,46)
+set recolor-darkcolor rgb(205,214,244)
+
+set index-fg rgb(205,214,244)
+set index-bg rgb(30,30,46)
+set index-active-fg rgb(205,214,244)
+set index-active-bg rgb(49,50,68)
+
+set render-loading-bg rgb(30,30,46)
+set render-loading-fg rgb(205,214,244)
+
+set highlight-color rgb(87,82,104)
+set highlight-fg rgb(245,194,231)
+set highlight-active-color rgb(245,194,231)
