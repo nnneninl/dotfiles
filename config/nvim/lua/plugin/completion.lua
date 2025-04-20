@@ -66,6 +66,7 @@ return {
 		config = function()
 			local luasnip = require("luasnip")
 
+			luasnip.filetype_extend("astro", { "html" })
 			luasnip.filetype_extend("javascript", { "jsdoc" })
 			luasnip.filetype_extend("javascriptreact", { "html", "jsdoc", "react-es7" })
 			luasnip.filetype_extend("templ", { "html" })

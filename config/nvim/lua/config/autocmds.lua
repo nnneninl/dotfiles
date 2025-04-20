@@ -12,6 +12,7 @@ autocmd("FileType", {
 		vim.o.tabstop = 2
 	end,
 	pattern = {
+		"astro",
 		"css",
 		"html",
 		"javascript",
@@ -19,6 +20,7 @@ autocmd("FileType", {
 		"json",
 		"jsonc",
 		"markdown",
+		"sh",
 		"typescript",
 		"typescriptreact",
 	},

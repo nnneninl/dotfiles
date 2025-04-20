@@ -8,14 +8,14 @@ return {
 	build = ":TSUpdate",
 	keys = {
 		{
-			"<leader>tp",
+			"<LEADER>tp",
 			function()
 				vim.treesitter.inspect_tree()
 			end,
 			desc = "Toggle InspectTree.",
 		},
 		{
-			"<leader>gc",
+			"<LEADER>gc",
 			function()
 				require("treesitter-context").go_to_context()
 			end,
@@ -32,11 +32,13 @@ return {
 				"vim",
 				"vimdoc",
 				-- for me
+				"astro",
 				"bash",
 				"css",
 				"dockerfile",
 				"go",
 				"html",
+				"java",
 				"javascript",
 				"json",
 				"markdown",
@@ -44,7 +46,6 @@ return {
 				"python",
 				"rust",
 				"svelte",
-				"templ",
 				"tsx",
 				"typescript",
 			},

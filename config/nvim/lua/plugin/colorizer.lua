@@ -1,6 +1,5 @@
 return {
 	"catgoose/nvim-colorizer.lua",
-	--event = { "BufNewFile", "BufReadPre" },
 	event = "BufReadPre",
 	config = function()
 		require("colorizer").setup({

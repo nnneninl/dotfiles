@@ -13,21 +13,20 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 			local servers = {
+				"astro",
 				"bashls",
 				"clangd",
 				"cssls",
-				"eslint",
 				"dockerls",
 				"gopls",
 				"html",
-				"htmx",
+				"jdtls",
 				"jsonls",
 				"marksman",
 				"pyright",
 				"rust_analyzer",
 				"svelte",
 				"tailwindcss",
-				"templ",
 				"ts_ls",
 			}
 
@@ -54,18 +53,11 @@ return {
 				},
 			})
 
+			local svelte_lsp_capabilities = vim.tbl_deep_extend("force", {}, capabilities)
+			svelte_lsp_capabilities.workspace = { didChangeWatchedFiles = false }
 			lspconfig.svelte.setup({
-				capabilities = capabilities,
-				---@diagnostic disable-next-line: unused-local
-				on_attach = function(client, bufnr)
-					vim.api.nvim_create_autocmd("BufWritePost", {
-						group = vim.api.nvim_create_autocmd("svelte", { clear = true }),
-						callback = function(ctx)
-							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-						end,
-						pattern = { "*.js", "*.ts" },
-					})
-				end,
+				capabilities = svelte_lsp_capabilities,
+				filetypes = { "svelte" },
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -92,7 +84,7 @@ return {
 			})
 		end,
 	},
-	--}}}
+	-- }}}
 	-- williamboman/mason.nvim {{{
 	{
 		"williamboman/mason.nvim",
@@ -109,19 +101,20 @@ return {
 			local ensure_installed = function()
 				for _, pkg_name in ipairs({
 					-- formatter
-					"prettier",
+					"prettierd",
 					"stylua",
 					-- linter
-					"eslint-lsp",
+					"eslint_d",
 					"golangci-lint",
 					-- lsp
+					"astro-language-server",
 					"bash-language-server",
-					"dockerfile-language-server",
 					"clangd",
 					"css-lsp",
+					"dockerfile-language-server",
 					"gopls",
 					"html-lsp",
-					"htmx-lsp",
+					"jdtls",
 					"json-lsp",
 					"lua-language-server",
 					"marksman",
@@ -129,7 +122,6 @@ return {
 					"rust-analyzer",
 					"svelte-language-server",
 					"tailwindcss-language-server",
-					"templ",
 					"typescript-language-server",
 				}) do
 					local pkg = mr.get_package(pkg_name)
@@ -156,7 +148,7 @@ return {
 			end
 		end,
 	},
-	--}}}
+	-- }}}
 	-- stevearc/conform.nvim {{{
 	{
 		"stevearc/conform.nvim",
@@ -168,31 +160,37 @@ return {
 					},
 				},
 				formatters_by_ft = {
-					css = { "prettier" },
-					html = { "prettier" },
-					javascript = { "prettier" },
-					javascriptreact = { "prettier" },
+					astro = { "prettierd" },
+					css = { "prettierd" },
+					html = { "prettierd" },
+					javascript = { "prettierd" },
+					javascriptreact = { "prettierd" },
 					lua = { "stylua" },
-					markdown = { "prettier" },
+					markdown = { "prettierd" },
 					rust = { "rustfmt" },
-					svelte = { "prettier" },
-					typescript = { "prettier" },
-					typescriptreact = { "prettier" },
+					svelte = { "prettierd" },
+					typescript = { "prettierd" },
+					typescriptreact = { "prettierd" },
 				},
 				format_on_save = {
 					async = false,
-					lsp_fallback = false,
+					lsp_fallback = true,
 				},
 			})
 		end,
 	},
-	--}}}
+	-- }}}
 	-- mfussenegger/nvim-lint {{{
 	{
 		"mfussenegger/nvim-lint",
 		config = function()
 			require("lint").linters_by_ft = {
 				go = { "golangcilint" },
+				javascript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				svelte = { "eslint_d" },
+				typescript = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
@@ -200,10 +198,9 @@ return {
 				callback = function()
 					require("lint").try_lint()
 				end,
-				pattern = { "*.go" },
 				desc = "Run linter.",
 			})
 		end,
 	},
-	--}}}
+	-- }}}
 }
