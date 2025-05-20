@@ -11,17 +11,17 @@ printf "Proceed? (y/N): "
 read -r ans
 
 case "$ans" in
-  [yY])
-    rm -rf "$NVIM_CACHE" "$NVIM_SHARE" "$NVIM_STATE"
-    printf "[SUCCESS]: Directories removed.\n\n"
-    exit 0
-    ;;
-  [nN])
-    printf "[SUCCESS]: Answered no.\n\n"
-    exit 0
-    ;;
-  *)
-    printf "[ERROR]: Invalid answer.\n\n"
-    exit 1
-    ;;
+	[yY])
+		rm -rf "$NVIM_CACHE" "$NVIM_SHARE" "$NVIM_STATE"
+		printf "[SUCCESS]: Directories removed.\n\n"
+		exit 0
+		;;
+	[nN])
+		printf "[SUCCESS]: Answered no.\n\n"
+		exit 0
+		;;
+	*)
+		printf "[ERROR]: Invalid answer.\n\n"
+		exit 1
+		;;
 esac

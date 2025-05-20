@@ -3,14 +3,14 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
 			"williamboman/mason.nvim",
 			"stevearc/conform.nvim",
 			"mfussenegger/nvim-lint",
+			"saghen/blink.cmp",
 		},
 		event = { "BufNewFile", "BufReadPre" },
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local lspconfig = require("lspconfig")
 			local servers = {
 				"astro",
@@ -53,13 +53,6 @@ return {
 				},
 			})
 
-			local svelte_lsp_capabilities = vim.tbl_deep_extend("force", {}, capabilities)
-			svelte_lsp_capabilities.workspace = { didChangeWatchedFiles = false }
-			lspconfig.svelte.setup({
-				capabilities = svelte_lsp_capabilities,
-				filetypes = { "svelte" },
-			})
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp", { clear = true }),
 				callback = function(e)
@@ -68,8 +61,18 @@ return {
 					end
 
 					map("n", "<LEADER>d", "<CMD>lua vim.diagnostic.open_float()<CR>", "Show current line diagnostics.")
-					map("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic.")
-					map("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic.")
+					map(
+						"n",
+						"[d",
+						"<CMD>lua vim.diagnostic.jump({ count = -1, float = true })<CR>",
+						"Go to previous diagnostic."
+					)
+					map(
+						"n",
+						"]d",
+						"<CMD>lua vim.diagnostic.jump({ count = 1, float = true })<CR>",
+						"Go to next diagnostic."
+					)
 					map("n", "<LEADER>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", "Open code actions.")
 					map("n", "<S-k>", "<CMD>lua vim.lsp.buf.hover()<CR>", "Show documentation for word under cursor.")
 					map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", "Go to definition.")
@@ -193,7 +196,7 @@ return {
 				typescriptreact = { "eslint_d" },
 			}
 
-			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+			vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
 				group = vim.api.nvim_create_augroup("linting", { clear = true }),
 				callback = function()
 					require("lint").try_lint()

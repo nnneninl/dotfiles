@@ -20,7 +20,6 @@ autocmd("FileType", {
 		"json",
 		"jsonc",
 		"markdown",
-		"sh",
 		"typescript",
 		"typescriptreact",
 	},
@@ -52,6 +51,7 @@ autocmd("FileType", {
 })
 
 autocmd("BufReadPre", {
+	group = augroup("dotenv"),
 	command = "set filetype=dotenv",
 	pattern = ".env*",
 	desc = "Set filetype to `dotenv` for all files starting with `.env`.",

@@ -1,62 +1,53 @@
 return {
-	-- hrsh7th/nvim-cmp {{{
+	-- saghen/blink.cmp {{{
 	{
-		"hrsh7th/nvim-cmp",
+		"saghen/blink.cmp",
 		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-emoji",
-			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-		},
+		dependencies = { "L3MON4D3/LuaSnip" },
 		config = function()
-			local cmp = require("cmp")
+			require("blink.cmp").setup({
+				appearance = {
+					kind_icons = {
+						Text = "[TXT]",
+						Method = "[MTH]",
+						Function = "[FN]",
+						Constructor = "[CTOR]",
 
-			cmp.setup({
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-				}),
-				snippet = {
-					expand = function(args)
-						vim.snippet.expand(args.body)
-					end,
-				},
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "emoji" },
-					{ name = "luasnip" },
-					{ name = "buffer" },
-					{ name = "path" },
-				}),
-				formatting = {
-					fields = { "menu", "abbr", "kind" },
-					format = function(entry, item)
-						item.menu = ({
-							nvim_lsp = "[LSP]",
-							emoji = "[EMOJI]",
-							luasnip = "[SNIP]",
-							buffer = "[BUF]",
-							path = "[PATH]",
-						})[entry.source.name]
-						return item
-					end,
-				},
-				window = {
-					completion = {
-						border = { " " },
-					},
-					documentation = {
-						border = { " " },
+						Field = "[FLD]",
+						Variable = "[VAR]",
+						Property = "[PROP]",
+
+						Class = "[CLAS]",
+						Interface = "[IFC]",
+						Struct = "[STR]",
+						Module = "[MOD]",
+
+						Unit = "[UNT]",
+						Value = "[VAL]",
+						Enum = "[ENM]",
+						EnumMember = "[EMEM]",
+
+						Keyword = "[KW]",
+						Constant = "[CST]",
+
+						Snippet = "[SNIP]",
+						Color = "[CLR]",
+						File = "[FILE]",
+						Reference = "[REF]",
+						Folder = "[DIR]",
+						Event = "[EVT]",
+						Operator = "[OPR]",
+						TypeParameter = "[TYP]",
 					},
 				},
+				keymap = { preset = "enter" },
+				completion = { documentation = { auto_show = true } },
+				snippets = { preset = "luasnip" },
+				sources = { default = { "lsp", "path", "snippets", "buffer" } },
 			})
 		end,
 	},
-	--}}}
+	-- }}}
 	-- L3MON4D3/LuaSnip {{{
 	{
 		"L3MON4D3/LuaSnip",
@@ -76,5 +67,5 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
-	--}}}
+	-- }}}
 }
