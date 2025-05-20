@@ -1,0 +1,31 @@
+[manager]
+ratio = [1, 3, 3]
+sort_by = "alphabetical"
+sort_sensitive = true
+sort_reverse = false
+sort_dir_first = true
+show_hidden = true
+show_symlink = true
+mouse_events = []
+title_format = ""
+
+[preview]
+wrap = "no"
+tab_size = 4
+
+[opener]
+edit = [
+	{ run = '$EDITOR "$@"', block = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+
+[open]
+rules = [
+	{ mime = "text/*", use = "edit" },
+	{ name = "*.json", use = "edit" },
+]
+
+[input]
+cursor_blink = false

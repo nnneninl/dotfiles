@@ -1,0 +1,119 @@
+[manager]
+keymap = [
+	{ on = "<Esc>", run = "escape", desc = "Exit visual mode, clear selection, or cancel search" },
+	{ on = "q", run = "quit", desc = "Quit the process" },
+	{ on = "<S-q>", run = "quit --no-cwd-file", desc = "Quit without outputting cwd-file" },
+
+	# hopping
+	{ on = "k", run = "arrow prev", desc = "Previous file" },
+	{ on = "j", run = "arrow next", desc = "Next file" },
+	{ on = "<C-u>", run = "arrow -50%", desc = "Move cursor up half page" },
+	{ on = "<C-d>", run = "arrow 50%", desc = "Move cursor down half page" },
+	{ on = "<PageUp>", run = "arrow -100%", desc = "Move cursor up one page" },
+	{ on = "<PageDown>", run = "arrow 100%", desc = "Move cursor down one page" },
+	{ on = [ "g", "g" ], run = "arrow top", desc = "Go to top" },
+	{ on = "<S-g>", run = "arrow bot", desc = "Go to bottom" },
+
+	# navigation
+	{ on = "h", run = "leave", desc = "Back to parent directory" },
+	{ on = "l", run = "enter", desc = "Enter child directory" },
+
+	# toggle
+	{ on = "<Space>", run = [ "run", "arrow next" ], desc = "Toggle the current selection state" },
+	{ on = "<C-a>", run = "toggle_all --state=on", desc = "Select all files" },
+	{ on = "<C-r>", run = "toggle_all", desc = "Invert selection of all files" },
+
+	# visual mode
+	{ on = "v", run = "visual_mode", desc = "Enter visal mode (selection mode)" },
+	{ on = "<S-v>", run = "visual_mode --unset", desc = "Enter visal mode (unset mode)" },
+
+	# seeking
+	{ on = "<C-b>", run = "seek -5", desc = "Seek up 5 units in the preview" },
+	{ on = "<C-f>", run = "seek 5", desc = "Seek down 5 units in the preview" },
+
+	# spotting
+	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
+
+	# operation
+	{ on = "o", run = "open", desc = "Open selected files" },
+	{ on = "<S-o>", run = "open --interactive", desc = "Open selected files interactively" },
+	{ on = "<Enter>", run = "open", desc = "Open selected files" },
+	{ on = "<S-Enter>", run = "open --interactive", desc = "Open selected files interactively" },
+	{ on = "y", run = "yank", desc = "Yank selected files (copy)" },
+	{ on = "x", run = "yank --cut", desc = "Yank selected files (cut)" },
+	{ on = "p", run = "paste", desc = "Paste yanked files" },
+	{ on = "<S-p>", run = "paste --force", desc = "Paste yanked files (overwite if the destination exists)" },
+	{ on = "-", run = "link", desc = "Symlink the absolute path of yanked files" },
+	{ on = "_", run = "link --relative", desc = "Symlink the relative path of yanked files" },
+	{ on = "<C-->", run = "hardlink", desc = "Hardlink yanked files" },
+	{ on = "<S-y>", run = "unyank", desc = "Cancel the yank status" },
+	{ on = "<S-x>", run = "unyank", desc = "Cancel the yank status" },
+	{ on = "d", run = "remove", desc = "Trash selected files" },
+	{ on = "D", run = "remove --permanently", desc = "Permanently delete selected files" },
+	{ on = "%", run = "create", desc = "Create a file (ends with / for directories)" },
+	{ on = "r", run = "rename --cursor=before_ext", desc = "Rename selected file(s)" },
+	{ on = ";", run = "shell --interactive", desc = "Run a shell command" },
+	{ on = ":", run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
+	{ on = ".", run = "hidden toggle", desc = "Toggle visibility of hidden files" },
+	{ on = "s", run = "search --via=fd", desc = "Search files by name via fd" },
+	{ on = "<S-s>", run = "search --via=rg", desc = "Search files by content via rg" },
+	{ on = "<C-s>", run = "escape --search", desc = "Cancel the ongoing search" },
+
+	# linemode
+#	{ on = [ "m", "s" ], run = "linemode size", desc = "Linemode: size" },
+#	{ on = [ "m", "p" ], run = "linemode permissions", desc = "Linemode: permissions" },
+#	{ on = [ "m", "b" ], run = "linemode btime", desc = "Linemode: btime" },
+#	{ on = [ "m", "m" ], run = "linemode mtime", desc = "Linemode: mtime" },
+#	{ on = [ "m", "o" ], run = "linemode owner", desc = "Linemode: owner" },
+#	{ on = [ "m", "n" ], run = "linemode none", desc = "Linemode: none" },
+
+	# copy
+	{ on = [ "c", "c" ], run = "copy path", desc = "Copy the file path" },
+	{ on = [ "c", "d" ], run = "copy dirname", desc = "Copy the directory path" },
+	{ on = [ "c", "f" ], run = "copy filename", desc = "Copy the filename" },
+	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+
+	# filter
+	{ on = "f", run = "filter --smart", desc = "Filter files" },
+
+	# find
+	{ on = "/", run = "find --smart", desc = "Find next file" },
+	{ on = "?", run = "find --previous --smart", desc = "Find previous file" },
+	{ on = "n", run = "find_arrow", desc = "Next found" },
+	{ on = "<S-n>", run = "find_arrow --previous", desc = "Previous found" },
+
+	# goto
+	{ on = [ "g", "h" ], run = "cd ~", desc = "cd ~" },
+	{ on = [ "g", "c" ], run = "cd ~/.config", desc = "cd ~/.config" },
+	{ on = [ "g", "l" ], run = "cd ~/.local", desc = "cd ~/.local" },
+	{ on = [ "g", "b" ], run = "cd ~/.local/bin", desc = "cd ~/.local/bin" },
+	{ on = [ "g", "s" ], run = "cd ~/.local/share", desc = "cd ~/.local/share" },
+	{ on = [ "g", "<S-s>" ], run = "cd ~/.local/src", desc = "cd ~/.local/src" },
+	{ on = [ "g", "d" ], run = "cd ~/documents", desc = "cd ~/documents" },
+	{ on = [ "g", "<S-d>" ], run = "cd ~/downloads", desc = "cd ~/downloads" },
+	{ on = [ "g", "<S-m>" ], run = "cd ~/music", desc = "cd ~/music" },
+	{ on = [ "g", "p" ], run = "cd ~/pictures", desc = "cd ~/pictures" },
+	{ on = [ "g", "<S-p>" ], run = "cd ~/projects", desc = "cd ~/projects" },
+	{ on = [ "g", "v" ], run = "cd ~/videos", desc = "cd ~/videos" },
+	{ on = "<S-l>", run = "follow", desc = "Follow hovered symlink" },
+
+	# tasks
+	{ on = "w", run = "tasks:show", desc = "Show task manager" },
+
+	# help
+	{ on = [ "g", "?" ], run = "help", desc = "Open help" },
+]
+
+[tasks]
+keymap = [
+	{ on = "<Esc>", run = "close", desc = "Close task manager" },
+	{ on = "q", run = "close", desc = "Close task manager" },
+
+	{ on = "k", run = "arrow prev", desc = "Previous task" },
+	{ on = "j", run = "arrow next", desc = "Next task" },
+
+	{ on = "<Enter>", run = "inspect", desc = "Inspect the task" },
+	{ on = "x", run = "cancel", desc = "Cancel the task" },
+
+	{ on = [ "g", "?" ], run = "help", desc = "Open help" },
+]
