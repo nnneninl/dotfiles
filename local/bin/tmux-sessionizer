@@ -1,0 +1,15 @@
+#!/bin/sh
+
+DIR=$(fd -p "${1:-.}" --type d --follow --hidden --exclude .git --exclude node_modules --color=always | sk --ansi --reverse --prompt "Select directory: ")
+
+[ -z "$DIR" ] && echo "No directory selected." && exit 1
+
+SESSION_NAME=$(basename "$DIR" | tr -cd "[:alnum:]_-")
+
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+	printf "Session %s already exists. Attaching...\n" "$SESSION_NAME"
+	tmux attach -t "$SESSION_NAME"
+else
+	printf "Starting new tmux session \"%s\" in directory: %s\n" "$SESSION_NAME" "$DIR"
+	tmux new-session -s "$SESSION_NAME" -c "$DIR"
+fi
