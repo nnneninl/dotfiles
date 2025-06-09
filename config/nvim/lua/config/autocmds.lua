@@ -47,7 +47,7 @@ autocmd("FileType", {
 		vim.o.wrap = true
 	end,
 	pattern = { "gitcommit", "markdown" },
-	desc = "Enable spell check and line wrap for gitcommit and markdown files.",
+	desc = "Enable spell check and line wrap for `gitcommit` and `markdown` files.",
 })
 
 autocmd("BufReadPre", {

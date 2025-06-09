@@ -55,6 +55,28 @@ return {
 	config = function()
 		require("snacks").setup({
 			picker = {
+				layout = {
+					preset = "ivy_split",
+					cycle = false,
+				},
+				layouts = {
+					ivy_split = {
+						layout = {
+							backdrop = false,
+							box = "vertical",
+							border = "",
+							height = 0.4,
+							position = "bottom",
+							width = 0,
+							{ win = "input", height = 1, border = ""},
+							{
+								box = "horizontal",
+								{ win = "list", border = "" },
+								{ win = "preview", title = "{preview}", width = 0.6, border = "" },
+							},
+						},
+					},
+				},
 				prompt = "> ",
 				icons = {
 					files = {

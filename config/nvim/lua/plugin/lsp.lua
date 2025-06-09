@@ -28,8 +28,8 @@ return {
 				"svelte",
 				"tailwindcss",
 				"ts_ls",
+				"vls",
 			}
-
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 				border = { " " },
 			})
@@ -38,20 +38,35 @@ return {
 				lspconfig[lsp].setup({
 					capabilities = capabilities,
 				})
+				--[[
+				vim.lsp.config[lsp] = { capabilities = capabilities }
+				vim.lsp.enable(lsp)
+				--]]
 			end
 
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = {
 					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
+						diagnostics = { globals = { "vim" } },
 						runtime = { "LuaJIT" },
 						workspace = { checkThirdParty = false },
 					},
 				},
 			})
+			--[[
+			vim.lsp.config["lua_ls"] = {
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						diagnostics = { globals = { "vim" } },
+						runtime = { "LuaJIT" },
+						workspace = { checkThirdParty = false },
+					},
+				},
+			}
+			vim.lsp.enable("lua_ls")
+			--]]
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp", { clear = true }),
@@ -126,6 +141,7 @@ return {
 					"svelte-language-server",
 					"tailwindcss-language-server",
 					"typescript-language-server",
+					"vue-language-server",
 				}) do
 					local pkg = mr.get_package(pkg_name)
 					if not pkg:is_installed() then
@@ -165,7 +181,7 @@ return {
 				formatters_by_ft = {
 					astro = { "prettierd" },
 					css = { "prettierd" },
-					html = { "prettierd" },
+					--html = { "prettierd" },
 					javascript = { "prettierd" },
 					javascriptreact = { "prettierd" },
 					lua = { "stylua" },
@@ -177,7 +193,8 @@ return {
 				},
 				format_on_save = {
 					async = false,
-					lsp_fallback = true,
+					--lsp_format = "fallback",
+					timeout_ms = 10000,
 				},
 			})
 		end,
@@ -188,6 +205,7 @@ return {
 		"mfussenegger/nvim-lint",
 		config = function()
 			require("lint").linters_by_ft = {
+				astro = { "eslint_d" },
 				go = { "golangcilint" },
 				javascript = { "eslint_d" },
 				javascriptreact = { "eslint_d" },

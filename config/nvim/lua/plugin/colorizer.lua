@@ -1,11 +1,11 @@
 return {
 	"catgoose/nvim-colorizer.lua",
-	event = "BufReadPre",
+	event = "VeryLazy",
 	config = function()
 		require("colorizer").setup({
+			lazy_load = true,
 			user_default_options = {
 				css = true,
-				css_fn = true,
 				tailwind = true,
 			},
 		})
